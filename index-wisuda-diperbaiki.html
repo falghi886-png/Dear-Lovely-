@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffaf0">
+  <title>Selamat Wisuda, Kamu Hebat!</title>
+  <style>
+    :root{--ivory:#fffaf0;--cream:#f7efdf;--gold:#bd8b36;--gold2:#e5c77e;--ink:#4b3927;--muted:#806e59;--white:#fffdf8}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--ivory);color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+    button{font:inherit;cursor:pointer} .petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+    .petal{position:absolute;top:-30px;width:12px;height:18px;background:linear-gradient(135deg,#fff,#f1dca5);border-radius:80% 15% 80% 15%;opacity:.8;animation:fall linear forwards;filter:drop-shadow(0 2px 2px #b98b3730)}
+    @keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(620deg);opacity:.12}}
+    .wrap{width:min(100% - 32px,980px);margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 0}.brand{font-size:14px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:bold}.music-btn,.nav-btn{border:1px solid #d9bd7b;background:#fffdf8;color:var(--ink);padding:10px 14px;border-radius:999px;font-size:13px}
+    .hero{min-height:76vh;display:grid;place-items:center;text-align:center;position:relative;padding:48px 10px 70px;background:radial-gradient(ellipse at center,#fff 0%,#fffaf0 56%,#f6ead2 100%);border:1px solid #ead7ac;border-radius:28px;overflow:hidden}
+    .hero:before,.hero:after{content:'✿';position:absolute;font-size:clamp(90px,19vw,180px);color:#e7cf91;opacity:.42;animation:sway 5s ease-in-out infinite}.hero:before{top:12px;left:5%;transform-origin:bottom}.hero:after{bottom:8px;right:5%;animation-delay:-2.5s}
+    @keyframes sway{0%,100%{transform:rotate(-10deg) translateY(0)}50%{transform:rotate(10deg) translateY(-8px)}}
+    .eyebrow{letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font:600 11px Arial,sans-serif}.hero h1{font-size:clamp(44px,10vw,84px);line-height:.98;font-weight:normal;margin:20px 0 18px;color:#6e4a21}.hero h1 em{font-weight:normal;color:var(--gold)}.hero p{max-width:460px;line-height:1.8;color:var(--muted);font-size:16px;margin:0 auto 26px}.gold-btn{border:0;border-radius:999px;padding:14px 24px;background:linear-gradient(120deg,#9e6a20,#e6c979,#b17b2b);color:white;box-shadow:0 8px 22px #9e6a2030;transition:transform .2s}.gold-btn:hover{transform:translateY(-2px)}
+    section.content{padding:64px 0 10px}.section-head{text-align:center;margin-bottom:26px}.section-head .eyebrow{margin-bottom:10px}.section-head h2{font-size:clamp(30px,6vw,44px);font-weight:normal;margin:0 0 10px}.section-head p{color:var(--muted);line-height:1.7;margin:0 auto;max-width:520px}
+    .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.photo{border:1px solid #e7d6ad;background:#fff;padding:7px;border-radius:16px;box-shadow:0 7px 20px #6c4d1710;min-width:0}.photo button{display:block;width:100%;border:0;padding:0;background:transparent}.photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;background:linear-gradient(135deg,#f3e4c0,#fffdf8)}.photo figcaption{font-size:13px;text-align:center;padding:10px 4px 5px;color:var(--muted)}
+    .note{max-width:680px;margin:0 auto;padding:clamp(24px,6vw,52px);border:1px solid var(--gold2);outline:1px solid #eadcb9;outline-offset:6px;background:linear-gradient(145deg,#fffefa,#fff8e9);text-align:center;border-radius:4px;position:relative}.note:before,.note:after{content:'✿';position:absolute;color:#d9b86b;font-size:28px}.note:before{top:12px;left:14px}.note:after{bottom:12px;right:14px}.note h3{font-weight:normal;font-size:30px;margin:12px 0 18px}.note p{line-height:1.9;color:#6f5a43;white-space:pre-line}.surprise{margin:30px auto 0;text-align:center}.surprise-box{display:none;max-width:600px;margin:24px auto 0;padding:28px;border-radius:20px;background:#49351f;color:#fff7e7;text-align:center;box-shadow:0 15px 40px #49351f24;animation:pop .5s ease both}.surprise-box.show{display:block}.surprise-box h3{font-size:30px;font-weight:normal;color:#f2d48e}.surprise-box p{line-height:1.9}.surprise-box .heart{font-size:35px;color:#f2d48e}@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+    footer{text-align:center;padding:54px 10px 32px;color:var(--muted);font-size:13px;line-height:1.8}footer .flower{font-size:24px;color:var(--gold)}.modal{display:none;position:fixed;inset:0;z-index:20;background:#1e170fd9;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal img{max-width:95vw;max-height:82vh;border-radius:12px;box-shadow:0 15px 50px #0007}.modal button{position:absolute;top:18px;right:18px;border:1px solid #fff8;background:#fff;color:#49351f;border-radius:50%;width:42px;height:42px;font-size:24px}
+    @media(min-width:650px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.hero{min-height:78vh}.photo img{aspect-ratio:3/4}.topbar{padding:24px 0}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <header class="wrap topbar"><div class="brand">✿ A little celebration</div><button class="music-btn" id="musicToggle" type="button" aria-pressed="false">♫ Putar musik</button></header>
+  <main class="wrap">
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">Satu langkah besar, banyak mimpi menanti</div>
+        <h1>Happy<br><em>Graduation!</em></h1>
+        <p>Selamat atas perjalanan indah yang telah kamu selesaikan. Semoga hari ini menjadi awal dari begitu banyak hal baik yang menantimu.</p>
+        <button class="gold-btn" type="button" onclick="document.querySelector('#kenangan').scrollIntoView({behavior:'smooth'})">✧ Mulai kejutan</button>
+        <p style="font-size:13px;margin-top:20px;color:#a48a5c">11 November 2026 · Hari yang istimewa</p>
+      </div>
+    </section>
+
+    <section class="content" id="kenangan">
+      <div class="section-head"><div class="eyebrow">Potongan cerita</div><h2>Galeri Kenangan</h2><p>Setiap foto menyimpan cerita, tawa, perjuangan, dan langkah kecil yang membawamu sampai di sini. Ketuk foto untuk melihatnya lebih besar.</p></div>
+      <div class="gallery">
+        <figure class="photo"><button type="button" data-full="foto1.jpg" aria-label="Lihat foto kenangan 1"><img src="foto1.jpg" alt="Foto kenangan 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 450%22%3E%3Crect width=%22600%22 height=%22450%22 fill=%22%23f3e6c8%22/%3E%3Ctext x=%2250%25%22 y=%2248%25%22 text-anchor=%22middle%22 font-size=%2270%22 fill=%22%23b88b3d%22%3E✿%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 text-anchor=%22middle%22 font-size=%2222%22 fill=%22%23715a35%22%3ETambahkan foto1.jpg%3C/text%3E%3C/svg%3E'"></button><figcaption>Awal sebuah cerita</figcaption></figure>
+        <figure class="photo"><button type="button" data-full="foto2.jpg" aria-label="Lihat foto kenangan 2"><img src="foto2.jpg" alt="Foto kenangan 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 450%22%3E%3Crect width=%22600%22 height=%22450%22 fill=%22%23f8efdf%22/%3E%3Ctext x=%2250%25%22 y=%2248%25%22 text-anchor=%22middle%22 font-size=%2270%22 fill=%22%23b88b3d%22%3E✿%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 text-anchor=%22middle%22 font-size=%2222%22 fill=%22%23715a35%22%3ETambahkan foto2.jpg%3C/text%3E%3C/svg%3E'"></button><figcaption>Hari-hari penuh cerita</figcaption></figure>
+        <figure class="photo"><button type="button" data-full="foto3.jpg" aria-label="Lihat foto kenangan 3"><img src="foto3.jpg" alt="Foto kenangan 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 450%22%3E%3Crect width=%22600%22 height=%22450%22 fill=%22%23f3e6c8%22/%3E%3Ctext x=%2250%25%22 y=%2248%25%22 text-anchor=%22middle%22 font-size=%2270%22 fill=%22%23b88b3d%22%3E✿%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 text-anchor=%22middle%22 font-size=%2222%22 fill=%22%23715a35%22%3ETambahkan foto3.jpg%3C/text%3E%3C/svg%3E'"></button><figcaption>Perjuangan yang berharga</figcaption></figure>
+        <figure class="photo"><button type="button" data-full="foto4.jpg" aria-label="Lihat foto kenangan 4"><img src="foto4.jpg" alt="Foto kenangan 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 450%22%3E%3Crect width=%22600%22 height=%22450%22 fill=%22%23f8efdf%22/%3E%3Ctext x=%2250%25%22 y=%2248%25%22 text-anchor=%22middle%22 font-size=%2270%22 fill=%22%23b88b3d%22%3E✿%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 text-anchor=%22middle%22 font-size=%2222%22 fill=%22%23715a35%22%3ETambahkan foto4.jpg%3C/text%3E%3C/svg%3E'"></button><figcaption>Momen yang tak terlupa</figcaption></figure>
+        <figure class="photo"><button type="button" data-full="foto5.jpg" aria-label="Lihat foto kenangan 5"><img src="foto5.jpg" alt="Foto kenangan 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 450%22%3E%3Crect width=%22600%22 height=%22450%22 fill=%22%23f3e6c8%22/%3E%3Ctext x=%2250%25%22 y=%2248%25%22 text-anchor=%22middle%22 font-size=%2270%22 fill=%22%23b88b3d%22%3E✿%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 text-anchor=%22middle%22 font-size=%2222%22 fill=%22%23715a35%22%3ETambahkan foto5.jpg%3C/text%3E%3C/svg%3E'"></button><figcaption>Senyum hari ini</figcaption></figure>
+        <figure class="photo"><button type="button" data-full="foto6.jpg" aria-label="Lihat foto kenangan 6"><img src="foto6.jpg" alt="Foto kenangan 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 450%22%3E%3Crect width=%22600%22 height=%22450%22 fill=%22%23f8efdf%22/%3E%3Ctext x=%2250%25%22 y=%2248%25%22 text-anchor=%22middle%22 font-size=%2270%22 fill=%22%23b88b3d%22%3E✿%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 text-anchor=%22middle%22 font-size=%2222%22 fill=%22%23715a35%22%3ETambahkan foto6.jpg%3C/text%3E%3C/svg%3E'"></button><figcaption>Awal babak baru</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="content" id="pesan">
+      <div class="section-head"><div class="eyebrow">Dari hati</div><h2>Untuk Kamu</h2><p>Ada pesan kecil untuk seseorang yang sudah berjuang sejauh ini.</p></div>
+      <article class="note"><h3>Dear, you ✿</h3><p>Selamat wisuda!
+
+Terima kasih sudah berjuang, bahkan pada hari-hari ketika semuanya terasa sulit. Hari ini adalah bukti bahwa langkah kecil yang kamu ambil setiap hari ternyata membawamu sejauh ini.
+
+Semoga setelah ini, pintu-pintu baik terbuka untukmu. Semoga kamu selalu dikelilingi orang-orang yang menyayangimu, diberi keberanian untuk mencoba, dan tidak pernah lupa betapa hebatnya dirimu.
+
+Hari ini kamu boleh berbangga. Kamu pantas merayakannya.</p><p style="color:#ad7c2d">Dengan bangga dan doa terbaik ♡</p></article>
+      <div class="surprise"><button class="gold-btn" id="surpriseBtn" type="button" aria-expanded="false">🎁 Buka kejutan rahasia</button>
+        <div class="surprise-box" id="surpriseBox" aria-live="polite"><div class="heart">♥</div><h3>Satu hal yang perlu kamu tahu…</h3><p>Aku bangga padamu, bukan hanya karena kamu berhasil sampai di hari wisuda, tetapi juga karena semua usaha yang tidak selalu dilihat orang lain. Semoga ini menjadi awal dari banyak kebahagiaan. Jangan berhenti bermimpi, ya!</p><p style="color:#f2d48e">You did it. And this is only the beginning.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="flower">✿</div><div>Dibuat dengan sepenuh hati, khusus untuk merayakan pencapaianmu.</div><div>Semoga langkah berikutnya dipenuhi hal-hal baik ♡</div></footer>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Foto diperbesar"><button id="closeModal" type="button" aria-label="Tutup foto">×</button><img id="modalImg" src="" alt="Foto kenangan diperbesar"></div>
+  <audio id="bg-music" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
+  <script>
+    const petalsRoot=document.getElementById('petals');
+    function makePetal(){const p=document.createElement('span');p.className='petal';p.textContent=Math.random()>.5?'✿':'';p.style.left=Math.random()*100+'%';p.style.setProperty('--drift',(Math.random()*180-90)+'px');p.style.animationDuration=(7+Math.random()*8)+'s';p.style.animationDelay=(Math.random()*2)+'s';p.style.fontSize=(10+Math.random()*12)+'px';petalsRoot.appendChild(p);setTimeout(()=>p.remove(),17000)}
+    for(let i=0;i<12;i++)setTimeout(makePetal,i*280);setInterval(makePetal,850);
+    const audio=document.getElementById('bg-music'),musicBtn=document.getElementById('musicToggle');
+    musicBtn.addEventListener('click',async()=>{if(audio.paused){try{await audio.play();musicBtn.textContent='Ⅱ Jeda musik';musicBtn.setAttribute('aria-pressed','true')}catch(e){alert('Tambahkan file music.mp3 ke folder website, lalu coba lagi.')}}else{audio.pause();musicBtn.textContent='♫ Putar musik';musicBtn.setAttribute('aria-pressed','false')}});
+    const surpriseBtn=document.getElementById('surpriseBtn'),surpriseBox=document.getElementById('surpriseBox');
+    surpriseBtn.addEventListener('click',()=>{const open=surpriseBox.classList.toggle('show');surpriseBtn.setAttribute('aria-expanded',String(open));surpriseBtn.textContent=open?'♡ Tutup kejutan':'🎁 Buka kejutan rahasia';if(open)surpriseBox.scrollIntoView({behavior:'smooth',block:'center'})});
+    const modal=document.getElementById('modal'),modalImg=document.getElementById('modalImg');
+    document.querySelectorAll('[data-full]').forEach(btn=>btn.addEventListener('click',()=>{const img=btn.querySelector('img');modalImg.src=img.src;modalImg.alt=img.alt;modal.classList.add('open')}));
+    function closeModal(){modal.classList.remove('open');modalImg.src=''}document.getElementById('closeModal').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+  </script>
+</body>
+</html>
